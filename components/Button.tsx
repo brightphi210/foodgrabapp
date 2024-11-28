@@ -1,22 +1,20 @@
-import { forwardRef } from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 
-type ButtonProps = {
-  title: string;
-} & TouchableOpacityProps;
+import { Ionicons } from '@expo/vector-icons';
+import React from 'react'
+import { Pressable, Text } from 'react-native'
 
-export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps }, ref) => {
-  return (
-    <TouchableOpacity
-      ref={ref}
-      {...touchableProps}
-      className={`${styles.button} ${touchableProps.className}`}>
-      <Text className={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
-  );
-});
+interface ButtonProps {
+    title : string;
+    action?: () => void;
+}
 
-const styles = {
-  button: 'items-center bg-indigo-500 rounded-[28px] shadow-md p-4',
-  buttonText: 'text-white text-lg font-semibold text-center',
-};
+const Button : React.FC<ButtonProps> = ({title, action} : ButtonProps) => {
+    return (
+      <Pressable onPress={action} className='bg-[#EC1C23] rounded-lg justify-center flex flex-row gap-3 items-center py-4 w-[90%]'>
+        <Text className='text-white font-bold text-lg'>{title}</Text>
+        <Ionicons name='arrow-forward' size={15} color={'white'}/>
+      </Pressable>
+    )
+}
+
+export default Button
