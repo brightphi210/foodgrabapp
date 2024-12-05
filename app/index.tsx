@@ -26,19 +26,17 @@ const Welcome = () =>{
         <StatusBar />
 
         {screen === 1 &&
-        
           <View className='relative gap-4 p-4 flex-1 w-full items-center justify-center'>
               <Pressable className='absolute right-10 top-10 flex flex-row items-center gap-2' onPress={()=>{router.replace('/(tabs)')}}>
-                <Text style={{fontFamily : 'SoraMedium'}} className='text-lg'>Skip</Text>
-                <Ionicons name='arrow-forward' size={15}/>
+                <Text style={{fontFamily : 'SoraMedium'}} className='text-sm'>Skip</Text>
+                <Ionicons name='arrow-forward' size={12}/>
               </Pressable>
-        
 
               <Animated.View className='w-full justify-center items-center '
                   entering={FadeInDown.duration(300).springify()}
               >
                 <Image 
-                  className='w-[20rem] h-[20rem]'
+                  className='w-[18rem] h-[18rem]'
                   source={require('../assets/images/onboard1.png')}
                 />
               </Animated.View>
@@ -46,47 +44,44 @@ const Welcome = () =>{
               <Animated.View className='w-full mt-10'
                   entering={FadeInDown.duration(300).delay(200).springify()}
               >
-                  <Text 
-                      className='text-3xl text-center leading-[2rem] px-10'
-                      style={{fontFamily: 'SoraBold'}}
-                      >Quench your craving
-                  </Text>
+                <Text 
+                    className='text-2xl text-center leading-[2rem] px-10'
+                    style={{fontFamily: 'SoraBold'}}
+                    >Quench your craving
+                </Text>
               </Animated.View>
-
 
               <Animated.View className='w-full'
                   entering={FadeInDown.duration(300).delay(400).springify()}
               >
-                  <Text 
-                      className='text-[16px] text-center leading-[2rem] w-[95%] flex m-auto justify-center'
-                      style={{fontFamily: 'SoraRegular'}}
-                      >Find your favorite meal from your favorite restaurants and we will deliver it to your door step  🚀.
-                  </Text>
+                <Text 
+                  className='text-base text-center leading-[2rem] w-[90%] flex m-auto justify-center'
+                  style={{fontFamily: 'SoraRegular'}}
+                  >Find your favorite meal from your favorite restaurants and we will deliver it to your door step  🚀.
+                </Text>
               </Animated.View>
-
 
               <Animated.View className='w-full justify-center items-center mt-8'
                   entering={FadeInDown.duration(300).delay(600).springify()}
               >
-                  <Button title='Next' action={handleScreenTwo}/>
+                <Button title='Next' action={handleScreenTwo}/>
               </Animated.View>
           </View>
         }
 
         {screen === 2 &&
-        
           <View className='gap-4 p-4 flex-1 w-full items-center justify-center'>
 
               <Pressable className='absolute right-10 top-10 flex flex-row items-center gap-2' onPress={()=>{router.replace('/(tabs)')}}>
-                <Text style={{fontFamily : 'SoraMedium'}} className='text-lg'>Skip</Text>
-                <Ionicons name='arrow-forward' size={15}/>
+                <Text style={{fontFamily : 'SoraMedium'}} className='text-sm'>Skip</Text>
+                <Ionicons name='arrow-forward' size={12}/>
               </Pressable>
 
               <Animated.View className='w-full justify-center items-center '
                   entering={FadeInDown.duration(300).springify()}
               >
                 <Image 
-                  className='w-[20rem] h-[20rem]'
+                  className='w-[18rem] h-[18rem]'
                   source={require('../assets/images/onboard2.png')}
                 />
               </Animated.View>
@@ -95,23 +90,21 @@ const Welcome = () =>{
                   entering={FadeInDown.duration(300).delay(200).springify()}
               >
                   <Text 
-                      className='text-3xl text-center leading-[2rem] px-10'
+                      className='text-2xl text-center leading-[2rem] px-10'
                       style={{fontFamily: 'SoraBold'}}
                       >Quench your craving
                   </Text>
               </Animated.View>
 
-
               <Animated.View className='w-full'
                   entering={FadeInDown.duration(300).delay(400).springify()}
               >
                   <Text 
-                      className='text-[16px] text-center leading-[2rem] w-[95%] flex m-auto justify-center'
+                      className='text-sm text-center leading-[2rem] w-[90%] flex m-auto justify-center'
                       style={{fontFamily: 'SoraRegular'}}
                       >Find your favorite meal from your favorite restaurants and we will deliver it to your door step  🚀.
                   </Text>
               </Animated.View>
-
 
               <Animated.View className='w-full justify-center items-center mt-8'
                   entering={FadeInDown.duration(300).delay(600).springify()}
@@ -122,21 +115,19 @@ const Welcome = () =>{
         }
 
 
-
         {screen === 3 &&
-          
             <View className='gap-4 p-4 flex-1 w-full items-center relative justify-center'>
 
               <Pressable className='absolute right-10 top-10 flex flex-row items-center gap-2'>
-                <Text style={{fontFamily : 'SoraMedium'}} className='text-lg'>Skip</Text>
-                <Ionicons name='arrow-forward' size={15}/>
+                <Text style={{fontFamily : 'SoraMedium'}} className='text-sm'>Skip</Text>
+                <Ionicons name='arrow-forward' size={12}/>
               </Pressable>
 
                 <Animated.View className='w-full justify-center items-center '
                     entering={FadeInDown.duration(300).springify()}
                 >
                   <Image 
-                    className='w-[20rem] h-[20rem]'
+                    className='w-[18rem] h-[18rem]'
                     source={require('../assets/images/onboard3.png')}
                   />
                 </Animated.View>
@@ -145,23 +136,21 @@ const Welcome = () =>{
                     entering={FadeInDown.duration(300).delay(200).springify()}
                 >
                     <Text 
-                        className='text-3xl text-center leading-[2rem] px-10'
+                        className='text-2xl text-center leading-[2rem] px-10'
                         style={{fontFamily: 'SoraBold'}}
                         >Quench your craving
                     </Text>
                 </Animated.View>
 
-
                 <Animated.View className='w-full'
                     entering={FadeInDown.duration(300).delay(400).springify()}
                 >
                     <Text 
-                        className='text-[16px] text-center leading-[2rem] w-[95%] flex m-auto justify-center'
+                        className='text-sm text-center leading-[2rem] w-[90%] flex m-auto justify-center'
                         style={{fontFamily: 'SoraRegular'}}
                         >Find your favorite meal from your favorite restaurants and we will deliver it to your door step  🚀.
                     </Text>
                 </Animated.View>
-
 
                 <Animated.View className='w-full justify-center items-center mt-8'
                     entering={FadeInDown.duration(300).delay(600).springify()}

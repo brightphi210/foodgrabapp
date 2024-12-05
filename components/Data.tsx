@@ -7,18 +7,51 @@ export const myData = [
         name: 'Kilimanjaro - Big Tree',
         price: 'N1000',
         description: 'A tropical paradise, this restaurant offers a mix of traditional and modern cuisine, perfect for a family gathering or a romantic dinner.',
-        image: require('../assets/images/food1.png'),
+        image: require('../assets/images/ChickenRepublic_HomePageBanner.jpg'),
         prepationTime: '5-20mins',
         rating: 4.5,
         reviews: 250,
         openTime: '5:00pm',
         cuisine: [
             {
+                id: '1',
+                name: 'Tropical',
+                icon: require('../assets/images/cuisine1.png'),
+                description: 'Egusi soup and soft eba',
+                price: 'N5,000'
+            },
+
+            {
+                id: '2',
+                name: 'Fried Rice and Chicken',
+                icon: require('../assets/images/cuisine2.png'),
+                description: 'Egusi soup and soft eba, Egusi soup and soft eba, Egusi soup and soft eba',
+                price: 'N25, 000'
+            },
+
+            {
+                id: '3',
+                name: 'Porage Yam',
+                icon: require('../assets/images/cuisine3.png'),
+                description: 'Sweet Yam',
+                price: 'N2000'
+            },
+
+            {
+                id: '4',
+                name: 'Fried Chpis',
+                icon: require('../assets/images/cuisine4.png'),
+                description: 'Egusi soup and soft eba',
+                price: 'N2000'
+            },
+
+            {
+                id: '5',
                 name: 'Tropical',
                 icon: require('../assets/images/cuisine1.png'),
                 description: 'Egusi soup and soft eba',
                 price: 'N2000'
-            }
+            },
         ]
     },
 
@@ -28,13 +61,14 @@ export const myData = [
         name: 'Mama Put Delight',
         price: 'N500',
         description: 'Authentic local delicacies made fresh daily, bringing the flavors of home to your plate.',
-        image: require('../assets/images/food2.png'),
+        image: require('../assets/images/food1.png'),
         prepationTime: '10-30mins',
         rating: 4.2,
         reviews: 180,
         openTime: '8:00am',
         cuisine: [
             {
+                id: '1',
                 name: 'Local',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Jollof rice with fried chicken',
@@ -49,13 +83,14 @@ export const myData = [
         name: 'Grill Master',
         price: 'N1500',
         description: 'A haven for grill lovers, featuring smoky and savory barbecue dishes that leave you craving for more.',
-        image: require('../assets/images/food2.png'),
+        image: require('../assets/images/Popular-Restaurants.jpg'),
         prepationTime: '15-40mins',
         rating: 4.8,
         reviews: 300,
         openTime: '6:00pm',
         cuisine: [
             {
+                id: '1',
                 name: 'Barbecue',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Grilled chicken and suya spice',
@@ -63,6 +98,8 @@ export const myData = [
             }
         ]
     },
+
+    
 
 
     // {
@@ -136,6 +173,7 @@ export const myDataChef = [
         openTime: '10:00am',
         cuisine: [
             {
+                id: '1',
                 name: 'Fast Food',
                 icon: require('../assets/images/chef1.png'),
                 description: 'Burger and fries combo',
@@ -155,6 +193,7 @@ export const myDataChef = [
         openTime: '7:00pm',
         cuisine: [
             {
+                id: '1',
                 name: 'Fine Dining',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Grilled salmon with a side of asparagus',
@@ -175,6 +214,7 @@ export const myDataChef = [
         openTime: '9:00am',
         cuisine: [
             {
+                id: '1',
                 name: 'Vegan',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Quinoa salad with a zesty dressing',

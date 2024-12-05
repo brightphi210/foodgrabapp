@@ -30,7 +30,6 @@ const PrivateChef: React.FC<PrivateChefProps> = ({name, price, description, imag
   
   return (
     <View  className='w-full '>
-
       <View className='mt-3 w-full'>
         <View className='flex-row w-full items-center gap-3 border-b border-neutral-200 pb-6'>
 

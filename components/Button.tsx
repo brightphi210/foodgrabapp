@@ -11,7 +11,7 @@ interface ButtonProps {
 const Button : React.FC<ButtonProps> = ({title, action} : ButtonProps) => {
     return (
       <Pressable onPress={action} className='bg-[#EC1C23] rounded-lg justify-center flex flex-row gap-3 items-center py-4 w-[90%]'>
-        <Text className='text-white font-bold text-lg'>{title}</Text>
+        <Text className='text-white font-bold text-sm'>{title}</Text>
         <Ionicons name='arrow-forward' size={15} color={'white'}/>
       </Pressable>
     )

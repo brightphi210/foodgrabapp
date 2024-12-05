@@ -38,6 +38,7 @@ const Home = () => {
   return (
     <SafeAreaView className='flex-1 px-5 bg-white'>
       <StatusBar />
+      {/* <Stack.Screen options={{ headerShown: false}} /> */}
 
 
       {/* ========= Home Dashboard ============== */}
@@ -69,7 +70,6 @@ const Home = () => {
                   <Text className='text-sm pt-5' style={{fontFamily : 'SoraMedium'}}>Explore App</Text>
                 </Pressable>
             </Animated.View>
-
           </View> : 
 
           <View className='flex-1'>
@@ -159,14 +159,9 @@ const Home = () => {
                     </Animated.View>
                   }
               </ScrollView>
-
-                
-
-
           </View>
         }
       </View>
-      <Stack.Screen options={{ headerShown: false}} />
     </SafeAreaView>
   );
 }

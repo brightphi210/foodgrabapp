@@ -7,6 +7,7 @@ export default function TabLayout() {
       
       screenOptions={{
         tabBarActiveTintColor: '#54804D',
+        headerShown : false,
       }}>
       <Tabs.Screen
         name="index"
@@ -25,7 +26,6 @@ export default function TabLayout() {
         }}
       />
 
-
       <Tabs.Screen
         name="order"
         options={{
@@ -35,7 +35,7 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="two"
+        name="account"
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <TabBarIcon name="person-outline" color={color}/>,
