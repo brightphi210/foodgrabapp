@@ -18,7 +18,7 @@ export const myData = [
                 name: 'Tropical',
                 icon: require('../assets/images/cuisine1.png'),
                 description: 'Egusi soup and soft eba',
-                price: 'N5,000'
+                price: 5000
             },
 
             {
@@ -26,7 +26,7 @@ export const myData = [
                 name: 'Fried Rice and Chicken',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Egusi soup and soft eba, Egusi soup and soft eba, Egusi soup and soft eba',
-                price: 'N25, 000'
+                price: 25000
             },
 
             {
@@ -34,7 +34,7 @@ export const myData = [
                 name: 'Porage Yam',
                 icon: require('../assets/images/cuisine3.png'),
                 description: 'Sweet Yam',
-                price: 'N2000'
+                price: 2000
             },
 
             {
@@ -42,7 +42,7 @@ export const myData = [
                 name: 'Fried Chpis',
                 icon: require('../assets/images/cuisine4.png'),
                 description: 'Egusi soup and soft eba',
-                price: 'N2000'
+                price: 2000
             },
 
             {
@@ -50,7 +50,7 @@ export const myData = [
                 name: 'Tropical',
                 icon: require('../assets/images/cuisine1.png'),
                 description: 'Egusi soup and soft eba',
-                price: 'N2000'
+                price: 2500
             },
         ]
     },
@@ -68,11 +68,11 @@ export const myData = [
         openTime: '8:00am',
         cuisine: [
             {
-                id: '1',
+                id: '6',
                 name: 'Local',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Jollof rice with fried chicken',
-                price: 'N1500'
+                price: 1500
             }
         ]
     },
@@ -90,11 +90,11 @@ export const myData = [
         openTime: '6:00pm',
         cuisine: [
             {
-                id: '1',
+                id: '7',
                 name: 'Barbecue',
                 icon: require('../assets/images/cuisine2.png'),
                 description: 'Grilled chicken and suya spice',
-                price: 'N2500'
+                price: 2500
             }
         ]
     },

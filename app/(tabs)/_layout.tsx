@@ -1,7 +1,11 @@
 import { Link, Tabs } from 'expo-router';
 import { TabBarIcon } from '../../components/TabBarIcon';
+import { Text, View } from 'react-native';
+import { useCart } from '../AuthContext';
 
 export default function TabLayout() {
+  const {cart} = useCart()
+
   return (
     <Tabs
       
@@ -22,7 +26,14 @@ export default function TabLayout() {
         name="cart"
         options={{
           title: 'Cart',
-          tabBarIcon: ({ color }) => <TabBarIcon name="cart-outline" color={color} />,
+          tabBarIcon: ({ color }) => (
+          <View className='relative'>
+            <TabBarIcon name="cart-outline" color={color} />
+            {cart.length > 0 && 
+              <Text style={{fontFamily : 'SoraBold'}} className='absolute text-[8px] p-0 text-white right-[-5px] top-0 bg-red-600 rounded-full flex-row items-center justify-center  w-2 h-2'></Text>
+            }
+            </View>
+          ),
         }}
       />
 

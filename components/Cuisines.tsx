@@ -4,19 +4,19 @@ import { Image } from "react-native"
 import Checkbox from 'expo-checkbox';
 
 interface CuisineProps{
+    id: string,
     name: string,
     icon: string,
     description: string,
-    price: string,
-    selected: any
+    price: number,
+    selected: boolean;
+    onSelect: (id: string, isSelected: boolean) => void;
 }
 
-export const Cusines: React.FC<CuisineProps> = ({name, icon, description, price} : any) => {
-
-    const [isChecked, setIschecked] = useState(false)
+export const Cusines: React.FC<CuisineProps> = ({id, name, icon, description, price, onSelect, selected} : any) => {
 
     const handleCheck = () =>{
-        setIschecked(!isChecked)
+        onSelect(id, !selected)
     }
     return (
     <Pressable className="mt-5 flex-row justify-between gap-4 items-center border-b border-neutral-200 pb-5" onPress={handleCheck}>
@@ -27,11 +27,11 @@ export const Cusines: React.FC<CuisineProps> = ({name, icon, description, price}
         <View className="w-[50%]">
             <Text style={{fontFamily : 'SoraMedium'}} className="text-sm ">{name}</Text>
             <Text className='text-xs text-neutral-500 pt-1'>{description}</Text>
-            <Text className='text-sm text-green-800 pt-3' style={{fontFamily : 'SoraMedium'}}>{price}</Text>
+            <Text className='text-sm text-green-800 pt-3' style={{fontFamily : 'SoraMedium'}}>&#8358;{price.toLocaleString()}</Text>
         </View>
 
         <View className="ml-auto">
-            <Checkbox value={isChecked}/>
+            <Checkbox value={selected}/>
         </View>
     </Pressable>
   )

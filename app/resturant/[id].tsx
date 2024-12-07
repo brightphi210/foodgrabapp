@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Alert, FlatList, Image, Pressable, Text, View } from 'react-native'
 
 import { useLocalSearchParams } from 'expo-router'
@@ -11,19 +11,21 @@ import { Cusines } from '~/components/Cuisines'
 import { ScrollView } from 'react-native-virtualized-view';
 import Button from '~/components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useCart } from '../AuthContext'
 
 
 const SingleResturant = () => {
   
   const {id} = useLocalSearchParams()
   const restaurant = myData.find((r) => r.id === id);
-  console.log('This is the restaurant', restaurant?.cuisine);
-
+  
   const [isAll, setIsAll] = useState(true)
   const [isNew, setIsNew] = useState(false)
-  const [selectedItems, setSelectedItems] = useState<any>([])
 
-
+  const [selectedItems, setSelectedItems] = useState<{ [key: string]: boolean }>({})
+  const { addToCart } = useCart()
+  
+  
   const handleIsAll = ()=>{
     setIsAll(true)
     setIsNew(false)
@@ -35,38 +37,34 @@ const SingleResturant = () => {
   }
 
 
-  const addToCart = async () => {
-    if (selectedItems.length === 0) {
-      Alert.alert('Error', 'Please select items to add to cart')
-      return
-    }
-
-    try {
-      const cartData = await AsyncStorage.getItem('cart')
-      let cart = cartData ? JSON.parse(cartData) : []
-      
-      cart = [...cart, ...selectedItems]
-      await AsyncStorage.setItem('cart', JSON.stringify(cart))
-      
-      Alert.alert('Success', 'Items added to cart')
-      setSelectedItems([])
-    } catch (error) {
-      console.error('Error adding to cart:', error)
-      Alert.alert('Error', 'Failed to add items to cart')
-    }
+  const handleItemSelect = (itemId: string, isSelected: boolean) => {
+    setSelectedItems(prev => ({ ...prev, [itemId]: isSelected }))
   }
+  
 
-  const toggleItemSelection = (item: any) => {
-    setSelectedItems((prevItems :any) => {
-      const itemIndex = prevItems.findIndex((i:any) => i.id === item.id)
-      if (itemIndex > -1) {
-        return prevItems.filter((i:any) => i.id !== item.id)
-      } else {
-        // Item is not selected, add it
-        return [...prevItems, item]
-      }
-    })
-  }
+
+  const handleAddToCart = async () => {
+    const itemsToAdd = restaurant?.cuisine
+      .filter(item => selectedItems[item.id])
+      .map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: 1,
+        icon: item.icon,
+        restaurant: restaurant.name
+      }));
+
+    if (itemsToAdd && itemsToAdd.length > 0) {
+      await addToCart(itemsToAdd);
+      Alert.alert('Success', 'Combo added to cart');
+      setSelectedItems({});
+    } else {
+      Alert.alert('Error', 'Please select items to add to cart');
+    }
+  };
+
+
 
   const ItemSeparator = () => <View style={{ height: 5 }} />;
 
@@ -127,18 +125,6 @@ const SingleResturant = () => {
     </>
   )
 
-
-  const renderItem = ({ item }: any) => (
-    <Pressable onPress={() => toggleItemSelection(item)}>
-      <Cusines 
-        name={item?.name}
-        price={item?.price}
-        description={item?.description}
-        icon={item?.icon}
-        selected={selectedItems.some((i:any) => i.id === item.id)}
-      />
-    </Pressable>
-  )
   
   return (
     <SafeAreaView className='flex-1 px-5 bg-white'>
@@ -148,7 +134,16 @@ const SingleResturant = () => {
         data={restaurant?.cuisine}
         horizontal={false}
         showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
+        renderItem={({ item }) => (
+          <Cusines 
+            id={item.id.toString()}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            icon={item.icon}
+            selected={selectedItems[item.id]}
+            onSelect={handleItemSelect}
+          />)}
         keyExtractor={(item)=>item.id}
         contentContainerStyle={{ paddingBottom: 30}}
         ItemSeparatorComponent={ItemSeparator}
@@ -157,7 +152,7 @@ const SingleResturant = () => {
       />
 
       <View className='my-5 w-full justify-center m-auto flex-row'>
-        <Button title='Add to Cart' />
+        <Button title='Add to Cart' action={handleAddToCart }/>
       </View>
     </SafeAreaView>
   )
